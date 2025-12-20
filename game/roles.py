@@ -13,3 +13,7 @@ class Doctor(Role):
 class Civilian(Role):
     def __init__(self):
         super().__init__("Civilian")
+
+class Sheriff(Role):
+    def __init__(self):
+        super().__init__('Sheriff')
