@@ -1,4 +1,4 @@
-from game.logic import create_players
+from game.logic import create_players, night
 
 names = ["Ярік", "Остап", "Павло", "Бот1", "Бот2"]
 
