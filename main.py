@@ -1,1 +1,1 @@
-print("Hello wwwwOOOOorld")
+print("піська")
