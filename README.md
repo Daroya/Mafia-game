@@ -79,7 +79,7 @@ Mafia-game/
 └── README.md
 ```
 
-##🚧 Project Status
+## 🚧 Project Status
 - The project is under active development.
 - Planned improvements:
 - Additional roles (Doctor, Sheriff, etc.)
@@ -88,9 +88,10 @@ Mafia-game/
 - Game lobby system
 - Multiplayer improvements
 
-##👥 Authors;
+## 👥 Authors;
 Daroya,
 Overleas
+
 
 
 
