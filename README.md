@@ -89,7 +89,8 @@ Mafia-game/
 - Multiplayer improvements
 
 ##👥 Authors
-Daroya
-Overleas
+-Daroya
+-Overleas
+
 
 
