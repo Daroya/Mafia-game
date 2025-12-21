@@ -77,24 +77,16 @@ Mafia-game/
 ├── main.py               # Entry point
 └── README.md
 
-🚧 Project Status
+##🚧 Project Status
+- The project is under active development.
+- Planned improvements:
+- Additional roles (Doctor, Sheriff, etc.)
+- Improved UI and animations
+- Better error handling
+- Game lobby system
+- Multiplayer improvements
 
-The project is under active development.
-
-Planned improvements:
-
-Additional roles (Doctor, Sheriff, etc.)
-
-Improved UI and animations
-
-Better error handling
-
-Game lobby system
-
-Multiplayer improvements
-
-👥 Authors
-
-Yaroslav
-
+##👥 Authors
+Daroya
 Overleas
+
