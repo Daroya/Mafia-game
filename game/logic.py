@@ -23,31 +23,28 @@ def create_players(names):
 def night(players):
     print("Настала ніч!")
 
-
     alive_players = []
+    for p in players:
+        if p.alive:
+            alive_players.append(p)
 
-    # 1. збираємо живих
-    for pn in players:
-        if pn.alive == True:
-            alive_players.append(pn)
-
-    #Логіка мафії
+    # мафія
     mafia_players = []
-    for pn in alive_players:
-        if isinstance(pn.role, Mafia):
-            mafia_players.append(pn)
+    for p in alive_players:
+        if isinstance(p.role, Mafia):
+            mafia_players.append(p)
 
     if len(mafia_players) == 0:
         return
 
-    # мафія вибирає жертву
     victim = random.choice(alive_players)
 
-    #Логіка лікаря
+    # лікар
     doctors = []
-    for pn in alive_players:
-        if isinstance(pn.role, Doctor):
-            doctors.append(pn)
+    for p in alive_players:
+        if isinstance(p.role, Doctor):
+            doctors.append(p)
+    print('Ніч: Лікар вийшов на зміну')
 
     healed = None
     if len(doctors) > 0:
@@ -55,33 +52,38 @@ def night(players):
 
     if victim != healed:
         victim.kill()
-        print(f"Вночі загинув: {victim.name}")
-    
-    #Логіка Ширіфа
-    sheriff = []
-    for pn in alive_players:
-        if isinstance(pn.role, Sheriff):
-            sheriff.append(pn)
-    #Рандом вибір кого вбити ширіфа
-    sheriff_victim = random.choice(alive_players)
-    if victim == sheriff:
-        sheriff.kill()
+        print("Ніч: мафія вбила", victim.name)
     else:
-        sheriff_victim.kill()
-    print(f'Сьогодні Шериф убив {sheriff_victim.name}')
+        print("Ніч: лікар врятував гравця від мафії")
 
-#логика дня
+    # шериф
+    sheriffs = []
+    for p in alive_players:
+        if isinstance(p.role, Sheriff):
+            sheriffs.append(p)
+
+    if len(sheriffs) > 0:
+        checked = random.choice(alive_players)
+        print("Ніч: шериф перевірив", checked.name)
+#
 def day(players):
     print("Настав день!")
 
     alive_players = []
-#Провірка чи живий гравець і чи може він голосуати
-    for pd in players:
-        if pd.alive == True:
-            alive_players.append(pd)
-#Рандом голосованіє
+    for p in players:
+        if p.alive:
+            alive_players.append(p)
+    #
     voted_player = random.choice(alive_players)
-#Вибити людей за яких голосували
-    if voted_player.alive == True:
-        voted_player.kill()
-    print(f"Вигнали гравця: {voted_player.name}")
+    voted_player.kill()
+
+    print("День: вигнали", voted_player.name)
+
+#
+def end_game(players):
+    print("\nРолі гравців:")
+    for p in players:
+        status = "живий" if p.alive else "мертвий"
+        print(f"{p.name} — {p.role.name} — {status}")
+
+    
