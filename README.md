@@ -88,9 +88,10 @@ Mafia-game/
 - Game lobby system
 - Multiplayer improvements
 
-##👥 Authors
--Daroya
--Overleas
+##👥 Authors;
+Daroya,
+Overleas
+
 
 
 
