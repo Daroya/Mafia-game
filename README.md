@@ -51,6 +51,7 @@ python main.py
 For network mode, make sure the server is running before connecting clients.
 
 📁 Project Structure
+```
 Mafia-game/
 │
 ├── game/                 # Core game logic
@@ -76,6 +77,7 @@ Mafia-game/
 │
 ├── main.py               # Entry point
 └── README.md
+```
 
 ##🚧 Project Status
 - The project is under active development.
@@ -89,4 +91,5 @@ Mafia-game/
 ##👥 Authors
 Daroya
 Overleas
+
 
