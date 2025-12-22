@@ -36,8 +36,12 @@ def night(players):
 
     if len(mafia_players) == 0:
         return
-
+    
     victim = random.choice(alive_players)
+
+    while isinstance(victim.role, Mafia):
+        print("Ніч: Мафія не може вбити себе")
+        victim = random.choice(alive_players)
 
     # лікар
     doctors = []
@@ -50,11 +54,17 @@ def night(players):
     if len(doctors) > 0:
         healed = random.choice(alive_players)
 
+    # мафія вбила
     if victim != healed:
         victim.kill()
         print("Ніч: мафія вбила", victim.name)
     else:
-        print("Ніч: лікар врятував гравця від мафії")
+        print("Ніч: лікар врятував гравця")
+
+    alive_players = []
+    for p in players:
+        if p.alive:
+            alive_players.append(p)
 
     # шериф
     sheriffs = []
@@ -62,10 +72,12 @@ def night(players):
         if isinstance(p.role, Sheriff):
             sheriffs.append(p)
 
-    if len(sheriffs) > 0:
+    if len(sheriffs) > 0 and len(alive_players) > 1:
         checked = random.choice(alive_players)
-        print("Ніч: шериф перевірив", checked.name)
-#
+        print(f"Ніч: шериф перевірив {checked.name}")
+
+
+#логика дня
 def day(players):
     print("Настав день!")
 
