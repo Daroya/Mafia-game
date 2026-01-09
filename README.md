@@ -32,7 +32,7 @@ This project is educational and experimental, created to practice:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/mafia-game.git
+git clone https://github.com/Daroya/mafia-game.git
 ```
 2. Navigate to the project directory:
 ```
@@ -91,6 +91,7 @@ Mafia-game/
 ## 👥 Authors;
 Daroya,
 Overleas
+
 
 
 
