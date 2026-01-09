@@ -21,8 +21,7 @@ def create_players(names):
     return players
 
 def night(players):
-    print("Настала ніч!")
-
+  
     alive_players = []
     for p in players:
         if p.alive:
@@ -40,8 +39,9 @@ def night(players):
     victim = random.choice(alive_players)
 
     while isinstance(victim.role, Mafia):
-        print("Ніч: Мафія не може вбити себе")
         victim = random.choice(alive_players)
+
+    print('ПЕРЕВІРКА МАФІЯ ВБИЛА', victim)
 
     # лікар
     doctors = []
@@ -53,6 +53,10 @@ def night(players):
     healed = None
     if len(doctors) > 0:
         healed = random.choice(alive_players)
+    else:
+        print('Лікаря нема')
+    
+    print('ПЕРЕВІРКА ДОКТОР ВИЛІЧИВ', healed)
 
     # мафія вбила
     if victim != healed:
@@ -85,13 +89,18 @@ def day(players):
     for p in players:
         if p.alive:
             alive_players.append(p)
-    #
+    #Вибор кого вигнати у голосовані
     voted_player = random.choice(alive_players)
-    voted_player.kill()
 
+    while not voted_player.alive:
+        print("Цього гравця вже вбили, вибираємо іншого")
+        voted_player = random.choice(alive_players)
+
+    voted_player.kill()
     print("День: вигнали", voted_player.name)
 
-#
+
+#Кінець гри, ролі персонажів 
 def end_game(players):
     print("\nРолі гравців:")
     for p in players:

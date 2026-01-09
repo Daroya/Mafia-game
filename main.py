@@ -31,19 +31,23 @@ def check_win(players):
 
     return False
 
-
 print("Гра почалась!")
 
-while True:
+day_count = 1
+
+while not check_win(players):
+
+    print(f"\n🌙 НІЧ {day_count}")
     night(players)
 
     if check_win(players):
         break
 
+    print(f"\n☀️ ДЕНЬ {day_count}")
     day(players)
 
-    if check_win(players):
-        break
+    day_count += 1
 
 print("\n=== ГРА ЗАКІНЧИЛАСЬ ===")
-end_game(players) 
+end_game(players)
+
